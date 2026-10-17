@@ -1,0 +1,17 @@
+QMainWindow, QWidget { background: #f4f7fb; color: #1f2b3b; font-family: 'Segoe UI'; font-size: 10pt; }
+QLabel#titulo { font-size: 21pt; font-weight: 700; color: #133f68; padding: 12px 2px 1px; }
+QLabel#subtitulo { color: #617287; padding-bottom: 12px; }
+QGroupBox { background: white; border: 1px solid #dce5f0; border-radius: 9px; margin-top: 14px; padding: 15px 9px 9px; font-weight: 600; }
+QGroupBox::title { subcontrol-origin: margin; left: 16px; padding: 0 7px; color: #164877; }
+QLineEdit, QComboBox, QDateEdit, QTextEdit { background: white; padding: 7px; border: 1px solid #cdd9e6; border-radius: 5px; min-height: 22px; }
+QLineEdit:focus, QComboBox:focus, QDateEdit:focus { border-color: #327cb4; }
+QPushButton { background: #245e8a; color: white; border: 0; border-radius: 6px; padding: 10px 14px; font-weight: 600; }
+QPushButton:hover { background: #1d4f75; }
+QPushButton#btnTrabNuevo, QPushButton#btnCursoNuevo, QPushButton#btnActualizar { background: #637b91; }
+QPushButton#btnTrabDesactivar, QPushButton#btnCursoCancelar, QPushButton#btnDarBaja { background: #9e4a55; }
+QPushButton#btnTrabReactivar { background: #287b68; }
+QTableWidget { background: white; alternate-background-color: #f5f8fc; gridline-color: #e8eef6; selection-background-color: #d4e8f9; selection-color: #192c3d; }
+QHeaderView::section { background: #e9f0f8; padding: 9px; border: 0; border-right: 1px solid #dce5ef; color: #214768; font-weight: 600; }
+QTabWidget::pane { border: 0; }
+QTabBar::tab { background: #dde6f0; padding: 10px 18px; margin-right: 4px; border-radius: 5px; }
+QTabBar::tab:selected { background: #245e8a; color: white; }

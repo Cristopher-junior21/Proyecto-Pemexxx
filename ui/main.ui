@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="windowTitle">
+      <string>Sistema de Capacitación | Cangrejera</string>
+    </property>
+    <property name="geometry">
+      <rect>
+        <x>90</x>
+        <y>60</y>
+        <width>1130</width>
+        <height>790</height>
+      </rect>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="layoutPrincipal">
+        <item>
+          <widget class="QLabel" name="titulo">
+            <property name="text">
+              <string>Sistema de capacitación · Cangrejera</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QLabel" name="subtitulo">
+            <property name="text">
+              <string>Versión inicial local | Python + PySide6 + MySQL</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QTabWidget" name="tabsPrincipal">
+            <widget class="QWidget" name="tabInicio">
+              <attribute name="title">
+                <string>Inicio</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="layoutInicio">
+                <item>
+                  <widget class="QLabel" name="lblEstado">
+                    <property name="text">
+                      <string>Comprobando conexión...</string>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QLabel" name="lblContadores">
+                    <property name="text">
+                      <string/>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QLabel" name="lblAyuda">
+                    <property name="text">
+                      <string>Abre Trabajadores para comenzar a registrar información. Solo utiliza datos ficticios en esta fase de prueba.</string>
+                    </property>
+                  </widget>
+                </item>
+              </layout>
+            </widget>
+            <widget class="QWidget" name="tabTrabajadores">
+              <attribute name="title">
+                <string>Trabajadores</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="layoutTrabajadores">
+                <item>
+                  <widget class="QGroupBox" name="grupoTrabajador">
+                    <property name="title">
+                      <string>Registro y edición de trabajadores</string>
+                    </property>
+                    <layout class="QGridLayout" name="formTrabajador">
+                      <item row="0" column="0">
+                        <widget class="QLabel" name="labFicha">
+                          <property name="text">
+                            <string>Número de ficha *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="1">
+                        <widget class="QLineEdit" name="txtFicha">
+                          <property name="placeholderText">
+                            <string>Ej. 000123</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="2">
+                        <widget class="QLabel" name="labNombre">
+                          <property name="text">
+                            <string>Nombre completo *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="3">
+                        <widget class="QLineEdit" name="txtNombre">
+                          <property name="placeholderText">
+                            <string>Nombre del trabajador</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QLabel" name="labPuesto">
+                          <property name="text">
+                            <string>Puesto *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QLineEdit" name="txtPuesto">
+                          <property name="placeholderText">
+                            <string>Puesto</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="2">
+                        <widget class="QLabel" name="labDepartamento">
+                          <property name="text">
+                            <string>Departamento *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="3">
+                        <widget class="QLineEdit" name="txtDepartamento">
+                          <property name="placeholderText">
+                            <string>Departamento</string>
+                          </property>
+                        </widget>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <layout class="QHBoxLayout" name="botonesTrabajador">
+                    <item>
+                      <widget class="QPushButton" name="btnTrabGuardar">
+                        <property name="text">
+                          <string>Guardar trabajador</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnTrabNuevo">
+                        <property name="text">
+                          <string>Nuevo / limpiar</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnTrabDesactivar">
+                        <property name="text">
+                          <string>Desactivar</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnTrabReactivar">
+                        <property name="text">
+                          <string>Reactivar</string>
+                        </property>
+                      </widget>
+                    </item>
+                  </layout>
+                </item>
+                <item>
+                  <widget class="QLineEdit" name="txtBuscarTrabajador">
+                    <property name="placeholderText">
+                      <string>Buscar por ficha, nombre, puesto o departamento...</string>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QTableWidget" name="tablaTrabajadores"/>
+                </item>
+              </layout>
+            </widget>
+            <widget class="QWidget" name="tabCursos">
+              <attribute name="title">
+                <string>Cursos</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="layoutCursos">
+                <item>
+                  <widget class="QGroupBox" name="grupoCurso">
+                    <property name="title">
+                      <string>Registro y edición de cursos</string>
+                    </property>
+                    <layout class="QGridLayout" name="formCurso">
+                      <item row="0" column="0">
+                        <widget class="QLabel" name="lblCursoNombre">
+                          <property name="text">
+                            <string>Nombre del curso *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="1">
+                        <widget class="QLineEdit" name="txtCursoNombre"/>
+                      </item>
+                      <item row="0" column="2">
+                        <widget class="QLabel" name="lblCursoLugar">
+                          <property name="text">
+                            <string>Lugar</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="3">
+                        <widget class="QLineEdit" name="txtCursoLugar"/>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QLabel" name="lblCursoInicio">
+                          <property name="text">
+                            <string>Fecha de inicio *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QDateEdit" name="fechaCursoInicio">
+                          <property name="calendarPopup">
+                            <bool>true</bool>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="2">
+                        <widget class="QLabel" name="lblCursoFin">
+                          <property name="text">
+                            <string>Fecha de fin *</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="3">
+                        <widget class="QDateEdit" name="fechaCursoFin">
+                          <property name="calendarPopup">
+                            <bool>true</bool>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="0">
+                        <widget class="QLabel" name="lblCursoInstructor">
+                          <property name="text">
+                            <string>Instructor</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="1">
+                        <widget class="QLineEdit" name="txtCursoInstructor"/>
+                      </item>
+                      <item row="2" column="2">
+                        <widget class="QLabel" name="lblCursoEstado">
+                          <property name="text">
+                            <string>Estado</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="2" column="3">
+                        <widget class="QComboBox" name="cmbCursoEstado"/>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <layout class="QHBoxLayout" name="botonesCurso">
+                    <item>
+                      <widget class="QPushButton" name="btnCursoGuardar">
+                        <property name="text">
+                          <string>Guardar curso</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnCursoNuevo">
+                        <property name="text">
+                          <string>Nuevo / limpiar</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnCursoCancelar">
+                        <property name="text">
+                          <string>Cancelar curso</string>
+                        </property>
+                      </widget>
+                    </item>
+                  </layout>
+                </item>
+                <item>
+                  <widget class="QLineEdit" name="txtBuscarCurso">
+                    <property name="placeholderText">
+                      <string>Buscar por nombre, lugar o instructor...</string>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QTableWidget" name="tablaCursos"/>
+                </item>
+              </layout>
+            </widget>
+            <widget class="QWidget" name="tabInscripciones">
+              <attribute name="title">
+                <string>Inscripciones</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="layoutInscripciones">
+                <item>
+                  <widget class="QGroupBox" name="grupoInscripcion">
+                    <property name="title">
+                      <string>Asignar trabajadores a cursos</string>
+                    </property>
+                    <layout class="QGridLayout" name="formInscripcion">
+                      <item row="0" column="0">
+                        <widget class="QLabel" name="lblTrabSel">
+                          <property name="text">
+                            <string>Trabajador activo</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="0" column="1">
+                        <widget class="QComboBox" name="cmbTrabajador"/>
+                      </item>
+                      <item row="1" column="0">
+                        <widget class="QLabel" name="lblCursoSel">
+                          <property name="text">
+                            <string>Curso disponible</string>
+                          </property>
+                        </widget>
+                      </item>
+                      <item row="1" column="1">
+                        <widget class="QComboBox" name="cmbCurso"/>
+                      </item>
+                    </layout>
+                  </widget>
+                </item>
+                <item>
+                  <layout class="QHBoxLayout" name="botonesInscripcion">
+                    <item>
+                      <widget class="QPushButton" name="btnInscribir">
+                        <property name="text">
+                          <string>Inscribir</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnDarBaja">
+                        <property name="text">
+                          <string>Dar de baja del curso</string>
+                        </property>
+                      </widget>
+                    </item>
+                    <item>
+                      <widget class="QPushButton" name="btnActualizar">
+                        <property name="text">
+                          <string>Actualizar listados</string>
+                        </property>
+                      </widget>
+                    </item>
+                  </layout>
+                </item>
+                <item>
+                  <widget class="QTableWidget" name="tablaInscripciones"/>
+                </item>
+              </layout>
+            </widget>
+            <widget class="QWidget" name="tabCedulas">
+              <attribute name="title">
+                <string>Cédulas</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="layouttabCedulas">
+                <item>
+                  <widget class="QLabel" name="infotabCedulas">
+                    <property name="text">
+                      <string>En la siguiente etapa incorporaremos la vista previa y la exportación de cédulas individuales y masivas a PDF.</string>
+                    </property>
+                  </widget>
+                </item>
+              </layout>
+            </widget>
+            <widget class="QWidget" name="tabReportes">
+              <attribute name="title">
+                <string>Reportes</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="layouttabReportes">
+                <item>
+                  <widget class="QLabel" name="infotabReportes">
+                    <property name="text">
+                      <string>En la siguiente etapa incorporaremos reportes por periodo, participantes y exportación PDF.</string>
+                    </property>
+                  </widget>
+                </item>
+              </layout>
+            </widget>
+          </widget>
+        </item>
+      </layout>
+    </widget>
+    <widget class="QStatusBar" name="statusbar"/>
+  </widget>
+  <resources/>
+  <connections/>
+</ui>
