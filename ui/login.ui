@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogoLogin</class>
+ <widget class="QDialog" name="DialogoLogin">
+  <property name="windowModality"><enum>Qt::ApplicationModal</enum></property>
+  <property name="geometry"><rect><x>0</x><y>0</y><width>440</width><height>410</height></rect></property>
+  <property name="minimumSize"><size><width>420</width><height>390</height></size></property>
+  <property name="windowTitle"><string>Sistema de Capacitación | Acceso</string></property>
+  <layout class="QVBoxLayout" name="layoutGeneral">
+   <property name="leftMargin"><number>32</number></property>
+   <property name="topMargin"><number>28</number></property>
+   <property name="rightMargin"><number>32</number></property>
+   <property name="bottomMargin"><number>26</number></property>
+   <property name="spacing"><number>13</number></property>
+   <item>
+    <widget class="QLabel" name="lblTitulo">
+     <property name="text"><string>Sistema de Capacitación</string></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lblSubtitulo">
+     <property name="text"><string>Cangrejera · Acceso de personal autorizado</string></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+     <property name="wordWrap"><bool>true</bool></property>
+    </widget>
+   </item>
+   <item><spacer name="espacio1"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>12</height></size></property></spacer></item>
+   <item><widget class="QLabel" name="lblUsuario"><property name="text"><string>Nombre de usuario</string></property></widget></item>
+   <item>
+    <widget class="QLineEdit" name="txtUsuario">
+     <property name="minimumSize"><size><width>0</width><height>41</height></size></property>
+     <property name="placeholderText"><string>Escribe tu usuario</string></property>
+     <property name="maxLength"><number>80</number></property>
+    </widget>
+   </item>
+   <item><widget class="QLabel" name="lblContrasena"><property name="text"><string>Contraseña</string></property></widget></item>
+   <item>
+    <widget class="QLineEdit" name="txtContrasena">
+     <property name="minimumSize"><size><width>0</width><height>41</height></size></property>
+     <property name="echoMode"><enum>QLineEdit::Password</enum></property>
+     <property name="placeholderText"><string>Introduce tu contraseña</string></property>
+    </widget>
+   </item>
+   <item><spacer name="espacio2"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint" stdset="0"><size><width>20</width><height>12</height></size></property></spacer></item>
+   <item>
+    <widget class="QPushButton" name="btnEntrar">
+     <property name="minimumSize"><size><width>0</width><height>46</height></size></property>
+     <property name="text"><string>Iniciar sesión</string></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lblAviso">
+     <property name="text"><string>Usa las credenciales asignadas. No compartas tu contraseña.</string></property>
+     <property name="alignment"><set>Qt::AlignCenter</set></property>
+     <property name="wordWrap"><bool>true</bool></property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
