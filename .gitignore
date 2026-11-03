@@ -7,3 +7,8 @@ __pycache__/
 *.log
 PDF/
 *.pdf
+
+# Documentos con información de trabajadores, generados localmente
+salidas/
+respaldos/
+*.sql.bak

@@ -1,2 +1,2 @@
-Edita main.ui mediante el comando pyside6-designer desde el entorno virtual.
-No cambies los objectName si quieres conservar las conexiones de main.py.
+Interfaces editables desde Qt Designer (abrir main.ui, login.ui y detalle_trabajador.ui).
+Cambiar etiquetas, estilos y distribuciones es seguro; no cambiar objectName sin actualizar las referencias de los controladores Python. El archivo ui/style.qss define estilos generales.

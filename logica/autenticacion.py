@@ -1,8 +1,4 @@
-"""Autenticación del sistema de capacitación.
-
-No guarda contraseñas en texto plano. Los hashes se comprueban con Argon2id.
-Reutiliza la conexión existente en database/conexion.py.
-"""
+"""Autenticación segura Argon2id y autorización por roles de BD."""
 from argon2 import PasswordHasher, exceptions
 from database import conexion as db
 
@@ -10,33 +6,23 @@ _hasher = PasswordHasher()
 
 
 def autenticar(nombre_usuario: str, contrasena: str):
-    """Devuelve datos públicos del usuario si son correctos; si no, None.
-
-    Lanza la excepción de conexión si MySQL no está disponible; la interfaz
-    mostrará un mensaje sin exponer datos sensibles.
-    """
-    nombre_usuario = nombre_usuario.strip()
-    if not nombre_usuario or not contrasena:
+    if not nombre_usuario.strip() or not contrasena:
         return None
-    registros = db.fetchall(
-        """SELECT id, nombre_completo, nombre_usuario, password_hash
-           FROM usuarios
-           WHERE nombre_usuario = %s AND activo = 1
-           LIMIT 1""",
-        (nombre_usuario,),
-    )
-    if not registros:
-        return None
-
-    usuario = registros[0]
+    rows = db.fetchall('''SELECT u.id, u.nombre_completo, u.nombre_usuario,
+                         u.password_hash, r.codigo AS rol
+                         FROM usuarios u LEFT JOIN roles r ON r.id=u.rol_id
+                         WHERE u.nombre_usuario=%s AND u.activo=1 LIMIT 1''',
+                       (nombre_usuario.strip(),))
+    if not rows or not rows[0]['rol']:
+        return None  # No usar cuentas sin rol asignado
+    u=rows[0]
     try:
-        if not _hasher.verify(usuario["password_hash"], contrasena):
+        if not _hasher.verify(u['password_hash'],contrasena):
             return None
     except (exceptions.VerificationError, exceptions.InvalidHashError):
         return None
-
-    return {
-        "id": usuario["id"],
-        "nombre_completo": usuario["nombre_completo"],
-        "nombre_usuario": usuario["nombre_usuario"],
-    }
+    if _hasher.check_needs_rehash(u['password_hash']):
+        db.execute('UPDATE usuarios SET password_hash=%s WHERE id=%s',
+                   (_hasher.hash(contrasena),u['id']))
+    return {'id':u['id'],'nombre_completo':u['nombre_completo'],
+            'nombre_usuario':u['nombre_usuario'],'rol':u['rol']}

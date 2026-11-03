@@ -1,8 +1,26 @@
-QDialog { background-color: #F3F6FB; color: #18354F; font-family: "Segoe UI"; font-size: 11pt; }
-QLabel#lblTitulo { font-size: 20pt; font-weight: 700; color: #123E65; }
-QLabel#lblSubtitulo, QLabel#lblAviso { color: #62788E; font-size: 9pt; }
-QLineEdit { background-color: #FFFFFF; border: 1px solid #C9D7E5; border-radius: 7px; padding: 7px 11px; }
-QLineEdit:focus { border: 2px solid #2B668E; }
-QPushButton#btnEntrar { background-color: #215F88; color: white; font-weight: 600; border: 0px; border-radius: 7px; }
-QPushButton#btnEntrar:hover { background-color: #174D71; }
-QPushButton#btnEntrar:pressed { background-color: #103D5D; }
+/* Acceso institucional — usa la misma paleta del panel principal. */
+QDialog { background-color: #F5F8F6; font-family: "Segoe UI", "Arial"; font-size: 10pt; color: #231F20; }
+QFrame#panelMarca { background-color: #0E4A45; }
+QLabel#logoLogin { background-color: #FFFFFF; border-radius: 11px; padding: 3px; }
+QLabel#nombreMarca { color: #FFFFFF; font-size: 19pt; font-weight: 700; padding-top: 8px; }
+QLabel#nombreSistema { color: #B5CD9D; font-size: 10pt; font-weight: 600; }
+QLabel#marcaDescripcion { color: #E1EEE5; font-size: 11pt; }
+QLabel#marcaPie { color: #D7E6DA; font-size: 9pt; }
+QFrame#panelAcceso { background-color: #FFFFFF; }
+QLabel#lblTitulo { color: #0E4A45; font-size: 23pt; font-weight: 700; }
+QLabel#lblSubtitulo { color: #56876A; font-size: 10pt; }
+QLabel#lblUsuario, QLabel#lblContrasena { color: #355443; font-weight: 700; }
+QLabel#lblAviso { color: #56876A; font-size: 8.5pt; }
+QLineEdit {
+    background-color: #FFFFFF; color: #231F20;
+    border: 1px solid #CADDD0; border-radius: 9px; padding: 10px 12px;
+    selection-background-color: #7BA98D;
+}
+QLineEdit:focus { background-color: #FFFFFF; border: 2px solid #006C67; }
+QPushButton#btnEntrar {
+    background-color: #006C67; color: #FFFFFF;
+    border: 1px solid #006C67; border-radius: 9px;
+    font-weight: 700; padding: 10px 14px;
+}
+QPushButton#btnEntrar:hover { background-color: #0E4A45; border-color: #0E4A45; }
+QPushButton#btnEntrar:disabled { background-color: #DCE8DF; color: #698074; }

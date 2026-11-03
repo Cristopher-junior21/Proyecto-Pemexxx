@@ -1,0 +1,25 @@
+SISTEMA DE CAPACITACIÓN CANGREJERA — CAMBIOS v1.2
+
+BASE DEL CAMBIO: interfaz main.ui de la v1.1; lógica v0.9/v1.0/v1.1.
+
+ESTA ENTREGA SOLO CONTIENE:
+- ui/main.ui
+- logica/cursos.py
+- logica/sistema.py
+- tests/test_eventos_v12.py (opcional)
+
+INSTALACIÓN:
+1. Cierra el sistema y desde VS Code guarda un commit previo (o copia de los 3 archivos).
+2. Extrae el ZIP y copia ui/ y logica/ (su contenido) dentro de C:\Users\crist\Proyecto-Pemexxx.
+3. NO reemplaces .git, .env, .venv ni la base de datos.
+4. Ejecuta desde la carpeta raíz:
+   .\.venv\Scripts\python.exe main.py
+5. En Eventos el campo Duración total ahora es de solo lectura y se recalcula al cambiar fecha u horario.
+6. Pulsa Guardar evento: aparece una vista previa desplazable con todos los datos y dos opciones:
+   - Volver a editar: no registra ni modifica el evento.
+   - Confirmar y guardar: registra/modifica el evento en MySQL.
+7. Puedes probar reglas con:
+   .\.venv\Scripts\python.exe -m unittest discover -s tests
+
+El cálculo actual considera lunes a viernes, horario diario fijo, sin festivos ni tiempos de comida.
+No requiere migración MySQL. Este paquete no modifica directamente el repositorio remoto.

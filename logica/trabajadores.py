@@ -8,11 +8,14 @@ from database import conexion as db
 
 
 class TrabajadoresMixin:
-    def nuevo_trabajador(self):
+    def nuevo_trabajador(self, preguntar=True):
+        if preguntar and not self._confirmar_descartar('trabajador'):
+            return
         self.trabajador_id = None
         for campo in ("txtFicha", "txtNombre", "txtPuesto", "txtDepartamento"):
             self._w(campo).clear()
         self._w("txtFicha").setFocus()
+        self._guardar_firma_formulario('trabajador')
 
     def cargar_trabajadores(self):
         busqueda = f"%{self._w('txtBuscarTrabajador').text().strip()}%"
@@ -35,13 +38,18 @@ class TrabajadoresMixin:
         rows = db.fetchall("""SELECT id, numero_ficha, nombre_completo, puesto, departamento
                               FROM trabajadores WHERE id = %s""", (trab_id,))
         if rows:
+            if trab_id != self.trabajador_id and not self._confirmar_descartar('trabajador'):
+                self._restaurar_seleccion_tabla('tablaTrabajadores',self.trabajador_id)
+                return
             r = rows[0]
             self.trabajador_id = r["id"]
             for campo, valor in (("txtFicha", r["numero_ficha"]), ("txtNombre", r["nombre_completo"]),
                                  ("txtPuesto", r["puesto"]), ("txtDepartamento", r["departamento"])):
                 self._w(campo).setText(valor)
+            self._guardar_firma_formulario('trabajador')
 
     def guardar_trabajador(self):
+        if not self._requiere("captura"): return
         datos = tuple(self._w(c).text().strip() for c in
                       ("txtFicha", "txtNombre", "txtPuesto", "txtDepartamento"))
         if not all(datos):
@@ -53,11 +61,12 @@ class TrabajadoresMixin:
         else:
             db.execute("""UPDATE trabajadores SET numero_ficha=%s, nombre_completo=%s, puesto=%s,
                           departamento=%s WHERE id=%s""", datos + (self.trabajador_id,))
-        self.nuevo_trabajador()
+        self.nuevo_trabajador(preguntar=False)
         self.actualizar_todo()
         QMessageBox.information(self.ui, "Guardado", "Trabajador guardado correctamente.")
 
     def cambiar_estado_trabajador(self, activo):
+        if not self._requiere("captura"): return
         trab_id = self._seleccionado("tablaTrabajadores")
         if trab_id is None:
             QMessageBox.information(self.ui, "Selecciona un trabajador", "Primero selecciona una fila de la tabla.")

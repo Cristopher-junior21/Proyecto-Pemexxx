@@ -1,17 +1,290 @@
-QMainWindow, QWidget { background: #f4f7fb; color: #1f2b3b; font-family: 'Segoe UI'; font-size: 10pt; }
-QLabel#titulo { font-size: 21pt; font-weight: 700; color: #133f68; padding: 12px 2px 1px; }
-QLabel#subtitulo { color: #617287; padding-bottom: 12px; }
-QGroupBox { background: white; border: 1px solid #dce5f0; border-radius: 9px; margin-top: 14px; padding: 15px 9px 9px; font-weight: 600; }
-QGroupBox::title { subcontrol-origin: margin; left: 16px; padding: 0 7px; color: #164877; }
-QLineEdit, QComboBox, QDateEdit, QTextEdit { background: white; padding: 7px; border: 1px solid #cdd9e6; border-radius: 5px; min-height: 22px; }
-QLineEdit:focus, QComboBox:focus, QDateEdit:focus { border-color: #327cb4; }
-QPushButton { background: #245e8a; color: white; border: 0; border-radius: 6px; padding: 10px 14px; font-weight: 600; }
-QPushButton:hover { background: #1d4f75; }
-QPushButton#btnTrabNuevo, QPushButton#btnCursoNuevo, QPushButton#btnActualizar { background: #637b91; }
-QPushButton#btnTrabDesactivar, QPushButton#btnCursoCancelar, QPushButton#btnDarBaja { background: #9e4a55; }
-QPushButton#btnTrabReactivar { background: #287b68; }
-QTableWidget { background: white; alternate-background-color: #f5f8fc; gridline-color: #e8eef6; selection-background-color: #d4e8f9; selection-color: #192c3d; }
-QHeaderView::section { background: #e9f0f8; padding: 9px; border: 0; border-right: 1px solid #dce5ef; color: #214768; font-weight: 600; }
-QTabWidget::pane { border: 0; }
-QTabBar::tab { background: #dde6f0; padding: 10px 18px; margin-right: 4px; border-radius: 5px; }
-QTabBar::tab:selected { background: #245e8a; color: white; }
+/* SISTEMA CANGREJERA | PALETA ENTREGADA POR EL USUARIO
+   Verde 300 #0E4A45; Verde 623 #006C67; Verde Natural 003 #359645;
+   Verde Institucional 302 #56876A; Verde Tierno 004 #7FB645;
+   Verde Olivo 005 #355443; Verde 304 #75B077; Verde 306/607 #B5CD9D;
+   Verde 628 #7BA98D; Azul Institucional 006 #2D3D91;
+   Negro 001 #231F20; Blanco 002 #FFFFFF.
+   Colores aproximados tomados de la muestra suministrada (no CMYK/Pantone oficiales).
+*/
+QMainWindow, QWidget#centralwidget, QFrame#contenidoPrincipal {
+    background-color: #F5F8F6;
+    color: #231F20;
+    font-family: "Segoe UI", "Arial";
+    font-size: 10pt;
+}
+QFrame#barraLateral {
+    background-color: #0E4A45;
+    border: none;
+}
+QLabel#brandInitial {
+    background-color: #FFFFFF;
+    border-radius: 11px;
+    padding: 3px;
+}
+QLabel#brandTitle {
+    color: #FFFFFF;
+    font-size: 16pt;
+    font-weight: 700;
+    padding-top: 10px;
+}
+QLabel#brandSubtitle { color: #D8E7DE; font-size: 8pt; font-weight: 600; }
+QLabel#lblMenu { color: #B5CD9D; font-size: 8pt; font-weight: 700; padding-top: 10px; padding-bottom: 8px; }
+QPushButton[nav="true"] {
+    background-color: transparent;
+    border: 0;
+    color: #FFFFFF;
+    border-radius: 9px;
+    padding: 11px 16px;
+    text-align: left;
+    font-size: 10pt;
+    font-weight: 600;
+}
+QPushButton[nav="true"]:hover { background-color: #006C67; color: #FFFFFF; }
+QPushButton[nav="true"]:checked { background-color: #FFFFFF; color: #0E4A45; font-weight: 700; }
+QFrame#sidebarConnection { background-color: #355443; border: none; border-radius: 11px; }
+QLabel#lblEstadoTitle { color: #B5CD9D; font-size: 8pt; font-weight: 700; }
+QLabel#lblEstado { color: #FFFFFF; font-size: 9pt; font-weight: 600; }
+QLabel#sidebarFoot { color: #D7E6DA; font-size: 8pt; padding-top: 10px; }
+QLabel#lblEncabezado { color: #0E4A45; font-size: 19pt; font-weight: 700; }
+QLabel#lblSubEncabezado { color: #56876A; font-size: 9pt; }
+QLabel#lblFechaHoy { color: #355443; font-size: 9pt; padding-right: 12px; }
+QLabel#lblTituloAnio { color: #0E4A45; font-weight: 700; font-size: 12pt; padding: 7px; }
+QComboBox#cmbAnioActivo { min-width: 110px; background-color: #FFFFFF; border: 1px solid #7BA98D; border-radius: 8px; padding: 9px; }
+QTabWidget::pane { border: 0; background-color: transparent; }
+QTabBar::tab { border: 0; }
+QWidget#tabInicio, QWidget#tabTrabajadores, QWidget#tabCursos, QWidget#tabInscripciones,
+QWidget#tabCedulas, QWidget#tabReportes, QWidget#tabUsuarios { background-color: #F5F8F6; }
+QFrame#heroPanel {
+    background-color: #E6F0E5;
+    border: 1px solid #B5CD9D;
+    border-radius: 16px;
+}
+QLabel#heroEyebrow { color: #006C67; font-size: 8pt; font-weight: 700; }
+QLabel#heroTitle { color: #0E4A45; font-size: 17pt; font-weight: 700; }
+QLabel#heroDescription { color: #355443; font-size: 9.5pt; }
+QFrame#heroBadge {
+    background-color: #0E4A45;
+    border-radius: 12px;
+}
+QLabel#heroBadgeSymbol { background-color: #FFFFFF; color: #0E4A45; border-radius: 8px; }
+QLabel#heroBadgeText { color: #FFFFFF; font-size: 8pt; font-weight: 700; }
+QLabel#kpiSectionTitle { color: #0E4A45; font-size: 12pt; font-weight: 700; padding-top: 4px; }
+QFrame#cardTrabajadores, QFrame#cardCursos, QFrame#cardInscripciones,
+QFrame#panelProximos, QFrame#panelAccesos,
+QFrame#panelListadoTrab, QFrame#panelListadoCursos, QFrame#panelListadoInscripciones,
+QFrame#placeholderCedulas, QFrame#placeholderReportes {
+    background-color: #FFFFFF;
+    border: 1px solid #DCE8DF;
+    border-radius: 14px;
+}
+QFrame#cardTrabajadores { border-left: 4px solid #359645; }
+QFrame#cardCursos { border-left: 4px solid #006C67; }
+QFrame#cardInscripciones { border-left: 4px solid #2D3D91; }
+QLabel#labelTrabajadores, QLabel#labelCursos, QLabel#labelInscripciones { color: #355443; font-size: 9pt; font-weight: 600; }
+QLabel#valorTrabajadores, QLabel#valorCursos, QLabel#valorInscripciones { color: #0E4A45; font-size: 24pt; font-weight: 700; }
+QLabel#captionTrabajadores, QLabel#captionCursos, QLabel#captionInscripciones { color: #56876A; font-size: 8.5pt; }
+QLabel#tituloProximos, QLabel#accesosTitulo, QLabel#tituloListadoTrab,
+QLabel#tituloListadoCursos, QLabel#tituloListadoIns { color: #0E4A45; font-size: 11pt; font-weight: 700; }
+QLabel#subProximos, QLabel#accesosSubtitulo { color: #56876A; font-size: 8.5pt; }
+QLabel#titleTrabajadores, QLabel#titleCursos, QLabel#titleInscripciones,
+QLabel#titleCedulas, QLabel#titleReportes { color: #0E4A45; font-size: 16pt; font-weight: 700; }
+QLabel#descTrabajadores, QLabel#descCursos, QLabel#descInscripciones,
+QLabel#descCedulas, QLabel#descReportes { color: #56876A; font-size: 9pt; }
+QGroupBox {
+    background-color: #FFFFFF;
+    border: 1px solid #DCE8DF;
+    border-radius: 13px;
+    margin-top: 15px;
+    padding: 7px 5px 6px;
+    color: #0E4A45;
+    font-size: 10pt;
+    font-weight: 700;
+}
+QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; left: 19px; padding: 1px 7px; color: #0E4A45; }
+QLineEdit, QDateEdit, QTimeEdit, QComboBox, QSpinBox, QDoubleSpinBox, QPlainTextEdit, QTextEdit {
+    background-color: #FFFFFF;
+    color: #231F20;
+    border: 1px solid #CADDD0;
+    border-radius: 8px;
+    padding: 8px 11px;
+    min-height: 23px;
+    selection-background-color: #7BA98D;
+    selection-color: #231F20;
+}
+QLineEdit:focus, QDateEdit:focus, QTimeEdit:focus, QComboBox:focus,
+QSpinBox:focus, QDoubleSpinBox:focus, QPlainTextEdit:focus, QTextEdit:focus {
+    border: 2px solid #006C67;
+    background-color: #FFFFFF;
+}
+QLineEdit:disabled, QComboBox:disabled, QDateEdit:disabled, QTimeEdit:disabled,
+QSpinBox:disabled { background-color: #EEF3EF; color: #5D7567; }
+QLabel#labFicha, QLabel#labNombre, QLabel#labPuesto, QLabel#labDepartamento,
+QLabel#lblCursoNombre, QLabel#lblCursoTipo, QLabel#lblCursoModalidad,
+QLabel#lblCursoInicio, QLabel#lblCursoFin, QLabel#lblCursoEstado,
+QLabel#lblCursoLugar, QLabel#lblCursoEnlaceVirtual, QLabel#lblCursoInstructor,
+QLabel#lblTrabSel, QLabel#lblCursoSel { color: #355443; font-weight: 600; font-size: 9pt; }
+QPushButton {
+    border: 1px solid #CADDD0;
+    border-radius: 9px;
+    padding: 10px 14px;
+    background-color: #F0F5F1;
+    color: #0E4A45;
+    font-weight: 600;
+}
+QPushButton:hover { background-color: #DCE8DF; }
+QPushButton:pressed { background-color: #B5CD9D; }
+QPushButton#btnTrabGuardar, QPushButton#btnCursoGuardar, QPushButton#btnInscribir,
+QPushButton#btnReporteFiltrar, QPushButton#btnReportePdf,
+QPushButton#btnCedulaGenerar, QPushButton#btnUsuarioGuardar, QPushButton#btnRespaldo {
+    background-color: #006C67;
+    color: #FFFFFF;
+    border: 1px solid #006C67;
+    font-weight: 700;
+}
+QPushButton#btnTrabGuardar:hover, QPushButton#btnCursoGuardar:hover, QPushButton#btnInscribir:hover,
+QPushButton#btnReporteFiltrar:hover, QPushButton#btnReportePdf:hover,
+QPushButton#btnCedulaGenerar:hover, QPushButton#btnUsuarioGuardar:hover, QPushButton#btnRespaldo:hover {
+    background-color: #0E4A45;
+    border: 1px solid #0E4A45;
+}
+QPushButton#btnTrabNuevo, QPushButton#btnCursoNuevo, QPushButton#btnActualizar,
+QPushButton#btnReporteLimpiar, QPushButton#btnRefrescarPanel,
+QPushButton#btnTrabDetalle, QPushButton#btnDetalleTrabajador {
+    background-color: #E6F0E5;
+    border: 1px solid #B5CD9D;
+    color: #0E4A45;
+    font-weight: 700;
+}
+QPushButton#btnTrabNuevo:hover, QPushButton#btnCursoNuevo:hover, QPushButton#btnActualizar:hover,
+QPushButton#btnReporteLimpiar:hover, QPushButton#btnRefrescarPanel:hover,
+QPushButton#btnTrabDetalle:hover, QPushButton#btnDetalleTrabajador:hover {
+    background-color: #B5CD9D;
+}
+QPushButton#btnAccesoTrabajador, QPushButton#btnAccesoCurso {
+    background-color: #DCEEDD;
+    border: 1px solid #75B077;
+    color: #0E4A45;
+    text-align: left;
+    font-weight: 700;
+}
+QPushButton#btnAccesoTrabajador:hover, QPushButton#btnAccesoCurso:hover { background-color: #B5CD9D; }
+QPushButton#btnTrabReactivar, QPushButton#btnUsuarioActivar {
+    background-color: #DDEDD5;
+    color: #355443;
+    border: 1px solid #75B077;
+}
+QPushButton#btnTrabReactivar:hover, QPushButton#btnUsuarioActivar:hover { background-color: #B5CD9D; }
+/* El rojo semántico distingue desactivaciones y cancelaciones de acciones normales. */
+QPushButton#btnTrabDesactivar, QPushButton#btnCursoCancelar,
+QPushButton#btnDarBaja, QPushButton#btnUsuarioDesactivar {
+    background-color: #FCEFF0;
+    border: 1px solid #E7C0C4;
+    color: #963C48;
+    font-weight: 700;
+}
+QPushButton#btnTrabDesactivar:hover, QPushButton#btnCursoCancelar:hover,
+QPushButton#btnDarBaja:hover, QPushButton#btnUsuarioDesactivar:hover { background-color: #F3D8DD; }
+QTableWidget {
+    background-color: #FFFFFF;
+    alternate-background-color: #F3F8F4;
+    gridline-color: #DCE8DF;
+    border: 1px solid #DCE8DF;
+    border-radius: 9px;
+    color: #231F20;
+    selection-background-color: #B5CD9D;
+    selection-color: #231F20;
+    font-size: 9pt;
+}
+QHeaderView::section {
+    background-color: #DCE8DF;
+    color: #0E4A45;
+    border: none;
+    border-bottom: 1px solid #7BA98D;
+    padding: 10px 11px;
+    font-size: 9pt;
+    font-weight: 700;
+}
+QTableCornerButton::section { background-color: #DCE8DF; border: none; }
+QScrollBar:vertical { background-color: #F3F8F4; width: 12px; }
+QScrollBar::handle:vertical { background-color: #7BA98D; min-height: 24px; border-radius: 5px; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0; }
+QScrollBar:horizontal { background-color: #F3F8F4; height: 12px; }
+QScrollBar::handle:horizontal { background-color: #7BA98D; min-width: 24px; border-radius: 5px; }
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0; }
+QLabel#placeholderSymbolCedulas, QLabel#placeholderSymbolReportes { color: #006C67; font-size: 26pt; font-weight: 700; }
+QLabel#placeholderTitleCedulas, QLabel#placeholderTitleReportes { color: #0E4A45; font-size: 14pt; font-weight: 700; }
+QLabel#placeholderTextCedulas, QLabel#placeholderTextReportes { color: #355443; font-size: 10pt; }
+QLabel#lblGraficoReportes { background-color: #FFFFFF; border: 1px solid #DCE8DF; border-radius: 10px; }
+QStatusBar { background-color: #F5F8F6; color: #355443; border: 0; }
+QPushButton:disabled { background-color: #E6EBE7; color: #698074; border: 1px solid #DCE8DF; }
+
+/* V1.0 — Eventos: desplazamiento vertical accesible y controles sin solapamiento */
+QScrollArea#scrollEventos, QWidget#scrollEventosContenido {
+    background-color: #F5F8F6;
+    border: none;
+}
+QScrollArea#scrollEventos QScrollBar:vertical {
+    background: #ECF3EE;
+    width: 15px;
+    margin: 2px;
+    border-radius: 7px;
+}
+QScrollArea#scrollEventos QScrollBar::handle:vertical {
+    background: #56876A;
+    min-height: 42px;
+    border-radius: 6px;
+}
+QScrollArea#scrollEventos QScrollBar::handle:vertical:hover { background: #006C67; }
+QScrollArea#scrollEventos QScrollBar::add-line:vertical,
+QScrollArea#scrollEventos QScrollBar::sub-line:vertical { height: 0; }
+QLabel#lblAyudaScrollEventos { color: #56876A; font-size: 9pt; padding-bottom: 7px; }
+QLabel#lblCursoEstadoAuto {
+    border: 1px solid #CADDD0;
+    border-radius: 8px;
+    background: #EEF3EF;
+    color: #355443;
+    padding-left: 10px;
+}
+
+/* v1.1: campos en bloques independientes, dos columnas y scroll real */
+QFrame#campoEventoNombre, QFrame#campoEventoClave,
+QFrame#campoEventoTipo, QFrame#campoEventoClasificacion,
+QFrame#campoEventoModalidad, QFrame#campoEventoInstructor,
+QFrame#campoEventoFechaInicio, QFrame#campoEventoFechaFin,
+QFrame#campoEventoHoraInicio, QFrame#campoEventoHoraFin,
+QFrame#campoEventoDuracion, QFrame#campoEventoHorasCalculadas,
+QFrame#campoEventoLugar, QFrame#campoEventoEnlace,
+QFrame#campoEventoEstado {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+QLabel#tituloBloqueEventoDatos, QLabel#tituloBloqueEventoFechas,
+QLabel#tituloBloqueEventoExtra {
+    color: #0E4A45;
+    font-size: 10pt;
+    font-weight: 700;
+    background: #E6F0E5;
+    padding-left: 10px;
+    border-left: 4px solid #006C67;
+    border-radius: 4px;
+}
+QLabel#lblNotaEstadoEvento {
+    background: #EEF3EF;
+    color: #355443;
+    border: 1px solid #CADDD0;
+    border-radius: 8px;
+    padding: 10px;
+}
+QLabel#lblTituloHorasCalculadas {
+    color: #355443;
+    font-size: 9pt;
+    font-weight: 600;
+}
+QLabel#lblHorasCalculadas {
+    background: #EEF3EF;
+    color: #355443;
+    border: 1px solid #CADDD0;
+    border-radius: 8px;
+    padding-left: 10px;
+}

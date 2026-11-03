@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ui version="4.0">
+  <class>DialogoDetalle</class>
+  <widget class="QDialog" name="DialogoDetalle">
+    <property name="windowTitle">
+      <string>Datos complementarios de trabajador</string>
+    </property>
+    <layout class="QVBoxLayout" name="layoutDetalle">
+      <item>
+        <widget class="QLabel" name="lblTituloDetalle">
+          <property name="text">
+            <string>Información para la cédula de registro</string>
+          </property>
+        </widget>
+      </item>
+      <item>
+        <widget class="QScrollArea" name="scrollDetalle">
+          <property name="widgetResizable">
+            <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+            <layout class="QGridLayout" name="gridDetalle">
+              <item row="0" column="0">
+                <widget class="QLabel" name="lbl_curp">
+                  <property name="text">
+                    <string>CURP</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="0" column="1">
+                <widget class="QLineEdit" name="det_curp" />
+              </item>
+              <item row="0" column="2">
+                <widget class="QLabel" name="lbl_nombres">
+                  <property name="text">
+                    <string>Nombre(s)</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="0" column="3">
+                <widget class="QLineEdit" name="det_nombres" />
+              </item>
+              <item row="1" column="0">
+                <widget class="QLabel" name="lbl_apellido_paterno">
+                  <property name="text">
+                    <string>Apellido paterno</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="1" column="1">
+                <widget class="QLineEdit" name="det_apellido_paterno" />
+              </item>
+              <item row="1" column="2">
+                <widget class="QLabel" name="lbl_apellido_materno">
+                  <property name="text">
+                    <string>Apellido materno</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="1" column="3">
+                <widget class="QLineEdit" name="det_apellido_materno" />
+              </item>
+              <item row="2" column="0">
+                <widget class="QLabel" name="lbl_centro_trabajo">
+                  <property name="text">
+                    <string>Centro de trabajo</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="2" column="1">
+                <widget class="QLineEdit" name="det_centro_trabajo" />
+              </item>
+              <item row="2" column="2">
+                <widget class="QLabel" name="lbl_clave_centro_trabajo">
+                  <property name="text">
+                    <string>Clave del centro</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="2" column="3">
+                <widget class="QLineEdit" name="det_clave_centro_trabajo" />
+              </item>
+              <item row="3" column="0">
+                <widget class="QLabel" name="lbl_subsidiaria">
+                  <property name="text">
+                    <string>Subsidiaria</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="3" column="1">
+                <widget class="QLineEdit" name="det_subsidiaria" />
+              </item>
+              <item row="3" column="2">
+                <widget class="QLabel" name="lbl_gerencia">
+                  <property name="text">
+                    <string>Gerencia</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="3" column="3">
+                <widget class="QLineEdit" name="det_gerencia" />
+              </item>
+              <item row="4" column="0">
+                <widget class="QLabel" name="lbl_clave_departamento">
+                  <property name="text">
+                    <string>Clave de departamento</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="4" column="1">
+                <widget class="QLineEdit" name="det_clave_departamento" />
+              </item>
+              <item row="4" column="2">
+                <widget class="QLabel" name="lbl_categoria_base">
+                  <property name="text">
+                    <string>Categoría base</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="4" column="3">
+                <widget class="QLineEdit" name="det_categoria_base" />
+              </item>
+              <item row="5" column="0">
+                <widget class="QLabel" name="lbl_nivel">
+                  <property name="text">
+                    <string>Nivel</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="5" column="1">
+                <widget class="QLineEdit" name="det_nivel" />
+              </item>
+              <item row="5" column="2">
+                <widget class="QLabel" name="lbl_turno">
+                  <property name="text">
+                    <string>Turno</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="5" column="3">
+                <widget class="QLineEdit" name="det_turno" />
+              </item>
+              <item row="6" column="0">
+                <widget class="QLabel" name="lbl_tipo_plaza">
+                  <property name="text">
+                    <string>Tipo de plaza</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="6" column="1">
+                <widget class="QLineEdit" name="det_tipo_plaza" />
+              </item>
+              <item row="6" column="2">
+                <widget class="QLabel" name="lbl_jefe_inmediato">
+                  <property name="text">
+                    <string>Jefe inmediato</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="6" column="3">
+                <widget class="QLineEdit" name="det_jefe_inmediato" />
+              </item>
+              <item row="7" column="0">
+                <widget class="QLabel" name="lbl_extension">
+                  <property name="text">
+                    <string>Extensión</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="7" column="1">
+                <widget class="QLineEdit" name="det_extension" />
+              </item>
+              <item row="7" column="2">
+                <widget class="QLabel" name="lbl_entidad_federativa">
+                  <property name="text">
+                    <string>Entidad federativa</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="7" column="3">
+                <widget class="QLineEdit" name="det_entidad_federativa" />
+              </item>
+              <item row="8" column="0">
+                <widget class="QLabel" name="lbl_municipio">
+                  <property name="text">
+                    <string>Municipio</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="8" column="1">
+                <widget class="QLineEdit" name="det_municipio" />
+              </item>
+              <item row="8" column="2">
+                <widget class="QLabel" name="lbl_nivel_estudios">
+                  <property name="text">
+                    <string>Nivel de estudios</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="8" column="3">
+                <widget class="QLineEdit" name="det_nivel_estudios" />
+              </item>
+              <item row="9" column="0">
+                <widget class="QLabel" name="lbl_carrera">
+                  <property name="text">
+                    <string>Estudio o carrera</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="9" column="1">
+                <widget class="QLineEdit" name="det_carrera" />
+              </item>
+              <item row="9" column="2">
+                <widget class="QLabel" name="lbl_documento_probatorio">
+                  <property name="text">
+                    <string>Documento probatorio</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="9" column="3">
+                <widget class="QLineEdit" name="det_documento_probatorio" />
+              </item>
+              <item row="10" column="0">
+                <widget class="QLabel" name="lbl_anio_documento">
+                  <property name="text">
+                    <string>Año del documento</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="10" column="1">
+                <widget class="QLineEdit" name="det_anio_documento" />
+              </item>
+              <item row="10" column="2">
+                <widget class="QLabel" name="lbl_institucion_tipo">
+                  <property name="text">
+                    <string>Institución</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="10" column="3">
+                <widget class="QLineEdit" name="det_institucion_tipo" />
+              </item>
+              <item row="11" column="0">
+                <widget class="QLabel" name="lbl_discapacidad">
+                  <property name="text">
+                    <string>Discapacidad (si declara)</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="11" column="1">
+                <widget class="QLineEdit" name="det_discapacidad" />
+              </item>
+              <item row="11" column="2">
+                <widget class="QLabel" name="lbl_estado_civil">
+                  <property name="text">
+                    <string>Estado civil</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="11" column="3">
+                <widget class="QLineEdit" name="det_estado_civil" />
+              </item>
+              <item row="12" column="0">
+                <widget class="QLabel" name="lbl_hijos_dependientes">
+                  <property name="text">
+                    <string>Hijos dependientes</string>
+                  </property>
+                </widget>
+              </item>
+              <item row="12" column="1">
+                <widget class="QLineEdit" name="det_hijos_dependientes" />
+              </item>
+            </layout>
+          </widget>
+        </widget>
+      </item>
+      <item>
+        <layout class="QHBoxLayout" name="accionesDetalle">
+          <item>
+            <widget class="QPushButton" name="btnDetalleGuardar">
+              <property name="text">
+                <string>Guardar datos</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="btnDetalleCerrar">
+              <property name="text">
+                <string>Cerrar</string>
+              </property>
+            </widget>
+          </item>
+        </layout>
+      </item>
+    </layout>
+  </widget>
+  <resources />
+  <connections />
+</ui>

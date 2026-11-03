@@ -1,1 +1,1 @@
-"""Herramientas administrativas del proyecto."""
+"""Utilidades locales del sistema de capacitación."""

@@ -7,6 +7,7 @@ from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QDialog, QLineEdit, QMessageBox
 
 from logica.autenticacion import autenticar
+from logica.identidad_visual import aplicar_marca
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -24,6 +25,7 @@ class DialogoLogin:
             raise RuntimeError("login.ui debe tener una ventana de tipo QDialog")
         hoja_estilos = ROOT / "ui" / "login.qss"
         self.dialogo.setStyleSheet(hoja_estilos.read_text(encoding="utf-8"))
+        aplicar_marca(self.dialogo, "login")
 
         self.usuario = None
         self._nombre = self.dialogo.findChild(QLineEdit, "txtUsuario")

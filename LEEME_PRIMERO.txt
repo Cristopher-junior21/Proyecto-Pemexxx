@@ -1,0 +1,42 @@
+ACTUALIZACIÓN UNIFICADA v0.5 — SISTEMA DE CAPACITACIÓN CANGREJERA
+
+Este ZIP reúne EN UN SOLO PAQUETE:
+1. Inicio rápido por doble clic con Iniciar_Sistema.bat.
+2. Gestión de Cursos: tipo Cangrejera, Gas o Seguridad; modalidad Presencial o En línea; guardado y consulta de esos campos en MySQL.
+3. Rediseño de las interfaces: menú lateral, panel de indicadores, tarjetas de información, formularios y pantalla de inicio de sesión con estilo actualizado.
+4. Vista previa del diseño sin conectar a MySQL.
+
+INSTALACIÓN EN EL REPOSITORIO EXISTENTE
+1. Cierra el programa Cangrejera y Qt Designer si tienen archivos abiertos.
+2. En VS Code comprueba tus cambios: git status
+   Si tienes modificaciones sin guardar en Git, revísalas y crea un commit o una copia de respaldo ANTES de reemplazar archivos.
+3. Abre C:\Users\crist\Proyecto-Pemexxx en el Explorador de Windows.
+4. Abre este ZIP y copia EL CONTENIDO, NO una carpeta adicional, dentro del repositorio. Acepta reemplazar ui/main.ui, ui/style.qss, logica/cursos.py y logica/sistema.py. El ZIP también incluye los archivos del aspecto del login.
+5. NO borres ni sobrescribas: .git, .env, .venv, main.py, database/, scripts/crear_usuario.py ni logica/autenticacion.py. Este paquete no incluye dichos archivos.
+6. No se debe ejecutar ningún SQL adicional: se necesita la migración v0.3 que ya aplicaste a MySQL (tabla tipos_curso y campos de tipo/modalidad en cursos).
+
+EJECUCIÓN
+- Haz doble clic en Iniciar_Sistema.bat en la carpeta del repositorio.
+- Para comprobar SOLAMENTE el diseño sin MySQL, desde la terminal ubicada en Proyecto-Pemexxx:
+   .\.venv\Scripts\python.exe -m scripts.vista_previa_ui
+
+PRUEBAS DESPUÉS DE APLICAR
+A. Abre la aplicación con Iniciar_Sistema.bat.
+B. Inicia sesión, si ya instalaste el módulo de autenticación.
+C. Comprueba el menú lateral: Inicio, Trabajadores, Cursos, Inscripciones, Cédulas y Reportes.
+D. En Cursos, comprueba que existan los tipos Cangrejera/Gas/Seguridad y las modalidades Presencial/En línea.
+E. Crea un curso de prueba y verifica que aparezca en la tabla de cursos. Si necesitas comprobar la BD, ejecuta en Workbench:
+   SELECT c.nombre, t.nombre AS tipo, c.modalidad FROM cursos c LEFT JOIN tipos_curso t ON t.id=c.tipo_curso_id ORDER BY c.id DESC LIMIT 5;
+
+GUARDAR CAMBIOS EN GITHUB (después de comprobar que funcionan)
+   git status
+   git add Iniciar_Sistema.bat logica/cursos.py logica/sistema.py scripts/__init__.py scripts/vista_previa_ui.py ui/main.ui ui/style.qss ui/login.ui ui/login.qss
+   git diff --cached --stat
+   git commit -m "Unificar acceso rapido y rediseno del sistema"
+   git push origin main
+
+LIMITACIONES
+- El launcher usa el .venv que ya tienes o lo crea en la ubicación del repositorio; Python debe estar instalado.
+- No cambia la lógica de autenticación, las credenciales ni el archivo main.py.
+- Cédulas PDF y reportes siguen siendo módulos pendientes; no se muestran datos ficticios como funciones terminadas.
+- No se ha probado la ejecución gráfica en tu PC desde este entorno. Se han comprobado sintaxis de Python, XML y nombres de controles.
